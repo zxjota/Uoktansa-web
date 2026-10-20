@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Privacy Policy for Uoktansa">
+    <meta name="theme-color" content="#0A0E27">
+    <title>Privacy Policy — Uoktansa</title>
+    <style>
+        /* ========== CSS Custom Properties ========== */
+        :root {
+            /* Color Palette — Dark Premium */
+            --bg-primary: #0A0E27;
+            --bg-secondary: #0F1428;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+
+            /* Accents */
+            --accent-1: #6366F1;
+            --accent-2: #8B5CF6;
+            --accent-3: #EC4899;
+            --accent-4: #06B6D4;
+            --accent-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+            --accent-gradient-2: linear-gradient(135deg, #06B6D4 0%, #6366F1 100%);
+            --accent-glow: rgba(99, 102, 241, 0.5);
+
+            /* Text */
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-tertiary: #64748B;
+            --text-muted: #475569;
+
+            /* Borders & Lines */
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-accent: rgba(99, 102, 241, 0.3);
+
+            /* Effects */
+            --glass-bg: rgba(15, 20, 40, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --backdrop-blur: blur(20px);
+
+            /* Spacing */
+            --section-gap: clamp(12px, 3vw, 20px);
+            --content-padding: clamp(20px, 5vw, 36px);
+
+            /* Radius */
+            --radius-sm: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+
+            /* Shadows */
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.2);
+            --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.4);
+
+            /* Transitions */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+            --transition-fast: 0.2s var(--ease-out);
+            --transition-base: 0.35s var(--ease-out);
+            --transition-slow: 0.6s var(--ease-out);
+        }
+
+        /* ========== Reset ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, "Helvetica Neue", sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ========== Animated Background ========== */
+        .bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-canvas::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+            animation: drift1 25s var(--ease-in-out) infinite;
+        }
+
+        .bg-canvas::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+            animation: drift2 30s var(--ease-in-out) infinite;
+        }
+
+        @keyframes drift1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10%, 5%) scale(1.1); }
+        }
+
+        @keyframes drift2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-10%, -5%) scale(1.15); }
+        }
+
+        /* Grid overlay */
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 70%);
+        }
+
+        /* ========== Layout ========== */
+        .page-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 16px 80px;
+        }
+
+        /* ========== Hero Section ========== */
+        .hero {
+            position: relative;
+            padding: clamp(60px, 12vw, 100px) 20px clamp(80px, 15vw, 120px);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(600px, 90vw);
+            height: min(400px, 60vw);
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            padding: 8px 18px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            animation: fadeInDown 0.8s var(--ease-out);
+        }
+
+        .hero-badge .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.6);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-icon-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 28px;
+            animation: fadeInUp 0.8s var(--ease-out) 0.1s both;
+        }
+
+        .hero-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 24px;
+            background: var(--accent-gradient);
+            opacity: 0.3;
+            filter: blur(16px);
+            animation: icon-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes icon-glow {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-icon {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: url(#hero-icon-grad);
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 7vw, 52px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 12px;
+            animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
+            background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .app-name {
+            font-size: clamp(16px, 3.5vw, 20px);
+            color: var(--text-tertiary);
+            font-weight: 500;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s var(--ease-out) 0.3s both;
+        }
+
+        .hero .app-name span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        /* ========== Stats Bar ========== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            margin-top: 32px;
+            animation: fadeInUp 0.8s var(--ease-out) 0.4s both;
+        }
+
+        .stat-item {
+            background: var(--bg-secondary);
+            padding: 18px 12px;
+            text-align: center;
+        }
+
+        .stat-item .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-item .stat-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 2px;
+        }
+
+        /* ========== Navigation ========== */
+        .nav-fab {
+            position: fixed;
+            bottom: clamp(16px, 4vw, 24px);
+            right: clamp(16px, 4vw, 24px);
+            z-index: 100;
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: var(--accent-gradient);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.4);
+            transition: var(--transition-base);
+        }
+
+        .nav-fab:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .nav-fab svg {
+            width: 22px;
+            height: 22px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .nav-panel {
+            position: fixed;
+            bottom: clamp(80px, 10vw, 90px);
+            right: clamp(16px, 4vw, 24px);
+            z-index: 99;
+            width: min(320px, calc(100vw - 32px));
+            max-height: 70vh;
+            overflow-y: auto;
+            background: var(--glass-bg);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px) scale(0.96);
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .nav-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .nav-panel-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 4px 8px 12px;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 8px;
+        }
+
+        .nav-panel a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 12px;
+            border-radius: var(--radius-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .nav-panel a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .nav-panel a .nav-num {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-1);
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ========== Sections ========== */
+        .section {
+            background: var(--bg-card);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: var(--content-padding);
+            margin-bottom: var(--section-gap);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .section:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .section-num {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            background: var(--accent-gradient);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+            position: relative;
+        }
+
+        .section-num::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 17px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .section-title {
+            font-size: clamp(18px, 4vw, 22px);
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.4px;
+            line-height: 1.4;
+            padding-top: 5px;
+        }
+
+        .section-body {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .section-body p {
+            margin-bottom: 14px;
+        }
+
+        .section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .section-body a {
+            color: var(--accent-1);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .section-body a:hover {
+            color: var(--accent-2);
+        }
+
+        /* ========== Data Table ========== */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            margin: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 500px;
+        }
+
+        .data-table thead th {
+            background: rgba(99, 102, 241, 0.06);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .data-table tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .data-table tbody td strong {
+            color: var(--text-primary);
+        }
+
+        /* ========== Rights Grid ========== */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .right-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .right-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--accent-gradient);
+            transition: var(--transition-base);
+        }
+
+        .right-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .right-card:hover::before {
+            height: 100%;
+        }
+
+        .right-card .rc-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .right-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .right-card p {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            line-height: 1.65;
+        }
+
+        /* ========== Custom Lists ========== */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .custom-list li {
+            position: relative;
+            padding: 10px 0 10px 32px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .custom-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+        }
+
+        .custom-list li::after {
+            content: '✓';
+            position: absolute;
+            left: 4px;
+            top: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--accent-1);
+        }
+
+        .bullet-list {
+            padding-left: 20px;
+            margin: 16px 0;
+            list-style: none;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding: 7px 0 7px 20px;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-1);
+            opacity: 0.6;
+        }
+
+        /* ========== Highlight Boxes ========== */
+        .highlight-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-left: 3px solid #F59E0B;
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            font-size: 14px;
+            color: #D97706;
+            margin: 0;
+            line-height: 1.75;
+        }
+
+        .info-box {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-left: 3px solid var(--accent-1);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #A5B4FC;
+            margin: 0;
+            line-height: 1.75;
+        }
+
+        /* ========== Contact Section ========== */
+        .contact-section {
+            position: relative;
+            background: var(--accent-gradient);
+            border-radius: var(--radius-lg);
+            padding: clamp(36px, 8vw, 56px) clamp(24px, 6vw, 40px);
+            text-align: center;
+            margin-bottom: var(--section-gap);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-section .cs-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section h3 {
+            font-size: clamp(20px, 4.5vw, 26px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section a.email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: var(--transition-base);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section a.email-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-section a.email-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* ========== Footer ========== */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .footer .divider {
+            width: 48px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 3px;
+            margin: 0 auto 20px;
+        }
+
+        .footer .app-name-footer {
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .footer .disclaimer {
+            margin-top: 12px;
+            font-size: 11px;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* ========== Animations ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s var(--ease-out) both;
+        }
+
+        /* ========== Scrollbar ========== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ========== Selection ========== */
+        ::selection {
+            background: var(--accent-1);
+            color: #fff;
+        }
+
+        /* ========== Mobile Responsive ========== */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 14px 60px;
+            }
+
+            .hero {
+                padding: 48px 16px 70px;
+            }
+
+            .stats-bar {
+                margin-top: 24px;
+            }
+
+            .stat-item {
+                padding: 14px 8px;
+            }
+
+            .stat-item .stat-value {
+                font-size: 16px;
+            }
+
+            .stat-item .stat-label {
+                font-size: 10px;
+            }
+
+            .section {
+                padding: 22px 18px;
+                border-radius: 20px;
+            }
+
+            .section-header {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .section-num {
+                width: 36px;
+                height: 36px;
+                border-radius: 12px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 17px;
+            }
+
+            .section-body {
+                font-size: 14.5px;
+            }
+
+            .rights-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .right-card {
+                padding: 16px;
+            }
+
+            .data-table {
+                font-size: 13px;
+            }
+
+            .data-table thead th,
+            .data-table tbody td {
+                padding: 12px 10px;
+            }
+
+            .contact-section {
+                padding: 32px 22px;
+            }
+
+            .contact-section a.email-btn {
+                font-size: 15px;
+                padding: 13px 24px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-fab {
+                width: 48px;
+                height: 48px;
+            }
+
+            .custom-list li,
+            .bullet-list li {
+                font-size: 14.5px;
+            }
+
+            .highlight-box,
+            .info-box {
+                padding: 16px 18px;
+                margin: 16px 0;
+            }
+
+            .highlight-box p,
+            .info-box p {
+                font-size: 13.5px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        /* ========== Reduced Motion ========== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="bg-canvas"></div>
+<div class="grid-overlay"></div>
+
+<!-- SVG Definitions for Gradients -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+        <linearGradient id="hero-icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6366F1"/>
+            <stop offset="50%" style="stop-color:#8B5CF6"/>
+            <stop offset="100%" style="stop-color:#EC4899"/>
+        </linearGradient>
+    </defs>
+</svg>
+
+<div class="page-wrapper">
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-badge">
+            <span class="status-dot"></span>
+            Last Updated · October 20, 2026
+        </div>
+        <div class="hero-icon-wrapper">
+            <div class="hero-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                </svg>
+            </div>
+        </div>
+        <h1>Privacy Policy</h1>
+        <div class="app-name">for <span>Uoktansa</span></div>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value">🔒 Zero</div>
+                <div class="stat-label">Data Sold</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">🛡️ E2E</div>
+                <div class="stat-label">Encryption</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">⚡ 48h</div>
+                <div class="stat-label">Response Time</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Section 1 -->
+        <section class="section" id="s1">
+            <div class="section-header">
+                <span class="section-num">1</span>
+                <h2 class="section-title">Introduction</h2>
+            </div>
+            <div class="section-body">
+                <p>Your privacy is not just a policy — it's a promise. This Privacy Policy explains how <strong>Uoktansa</strong> ("we," "our," or "us") collects, uses, protects, and in some cases, discloses your information when you use our mobile application (the "App").</p>
+                <p>By downloading, accessing, or using Uoktansa, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with our practices, please refrain from using the App.</p>
+                <div class="info-box">
+                    <p><strong>At a Glance:</strong> We collect only the minimum data necessary to deliver our services. We never sell your personal information. Period.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section" id="s2">
+            <div class="section-header">
+                <span class="section-num">2</span>
+                <h2 class="section-title">Information We Collect</h2>
+            </div>
+            <div class="section-body">
+                <p>We collect information to provide, maintain, and improve our services. Below is a transparent breakdown:</p>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>What We Collect</th>
+                                <th>Why We Collect It</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Account Data</strong></td>
+                                <td>Name, email, profile details</td>
+                                <td>Account creation & authentication</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Usage Analytics</strong></td>
+                                <td>Feature interactions, session length, crash reports</td>
+                                <td>Product improvement & stability</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Device Data</strong></td>
+                                <td>Model, OS version, device identifiers, IP address</td>
+                                <td>Compatibility & security</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>General region/city (IP-based)</td>
+                                <td>Localized experience</td>
+                            </tr>
+                            <tr>
+                                <td><strong>User Content</strong></td>
+                                <td>Data you voluntarily submit within the App</td>
+                                <td>Core service delivery</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>We do <strong>not</strong> collect sensitive information — including precise location, health data, financial details, or biometric identifiers — unless explicitly required for a specific feature and with your express opt-in consent.</p>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section" id="s3">
+            <div class="section-header">
+                <span class="section-num">3</span>
+                <h2 class="section-title">How We Use Your Information</h2>
+            </div>
+            <div class="section-body">
+                <p>Your data serves a purpose. We use it solely to:</p>
+                <ul class="custom-list">
+                    <li>Create and manage your account securely</li>
+                    <li>Deliver, operate, and maintain the App's functionality</li>
+                    <li>Personalize and optimize your user experience</li>
+                    <li>Analyze usage patterns to improve our services</li>
+                    <li>Communicate important updates and provide customer support</li>
+                    <li>Detect, prevent, and resolve technical and security issues</li>
+                    <li>Fulfill legal and regulatory obligations</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>Legal Basis:</strong> We process your data based on contractual necessity, legitimate interests, legal compliance, or your explicit consent — whichever applies under the laws governing your jurisdiction.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section" id="s4">
+            <div class="section-header">
+                <span class="section-num">4</span>
+                <h2 class="section-title">Sharing & Disclosure</h2>
+            </div>
+            <div class="section-body">
+                <p><strong>We do not sell your data. Ever.</strong> We may share your information only in these limited scenarios:</p>
+                <ul class="bullet-list">
+                    <li><strong>Service Providers</strong> — Trusted third-party vendors (cloud hosting, analytics, support tools) who are bound by strict confidentiality agreements.</li>
+                    <li><strong>Legal & Safety</strong> — When required by law, court order, or to protect the rights, property, or safety of Uoktansa, our users, or the public.</li>
+                    <li><strong>Business Transitions</strong> — In the event of a merger, acquisition, or asset sale, your data may be transferred with appropriate safeguards.</li>
+                    <li><strong>Your Explicit Consent</strong> — Any other disclosure only with your clear, affirmative permission.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section" id="s5">
+            <div class="section-header">
+                <span class="section-num">5</span>
+                <h2 class="section-title">Data Security</h2>
+            </div>
+            <div class="section-body">
+                <p>We employ industry-leading security measures to safeguard your personal information against unauthorized access, alteration, disclosure, or destruction:</p>
+                <ul class="custom-list">
+                    <li>End-to-end encryption for data in transit (TLS 1.3+)</li>
+                    <li>AES-256 encryption for data at rest</li>
+                    <li>Regular penetration testing and security audits</li>
+                    <li>Multi-factor authentication and strict access controls</li>
+                    <li>Continuous security monitoring and threat detection</li>
+                </ul>
+                <p>While we implement commercially reasonable safeguards, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section" id="s6">
+            <div class="section-header">
+                <span class="section-num">6</span>
+                <h2 class="section-title">Your Rights & Choices</h2>
+            </div>
+            <div class="section-body">
+                <p>Depending on your location, privacy laws grant you specific rights over your personal data. We honor the following:</p>
+                <div class="rights-grid">
+                    <div class="right-card">
+                        <span class="rc-icon">📋</span>
+                        <h4>Right to Access</h4>
+                        <p>Request a complete copy of all personal data we hold about you.</p>
+                    </div>
+                    <div class="right-card">
+                        <span class="rc-icon">✏️</span>
+                        <h4>Right to Rectify</h4>
+                        <p>Correct any inaccurate, incomplete, or outdated information.</p>
+                    </div>
+                    <div class="right-card">
+                        <span class="rc-icon">🗑️</span>
+                        <h4>Right to Erasure</h4>
+                        <p>Request permanent deletion of your data, with limited exceptions.</p>
+                    </div>
+                    <div class="right-card">
+                        <span class="rc-icon">⏸️</span>
+                        <h4>Right to Restrict</h4>
+                        <p>Limit how we process your data in certain circumstances.</p>
+                    </div>
+                    <div class="right-card">
+                        <span class="rc-icon">📦</span>
+                        <h4>Right to Portability</h4>
+                        <p>Receive your data in a structured, commonly-used format.</p>
+                    </div>
+                    <div class="right-card">
+                        <span class="rc-icon">🚫</span>
+                        <h4>Right to Object</h4>
+                        <p>Opt out of marketing communications and certain processing.</p>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;">To exercise any of these rights, contact us at <a href="mailto:bakkabdo599@gmail.com">bakkabdo599@gmail.com</a>. We will respond promptly, typically within <strong>30 days</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="section" id="s7">
+            <div class="section-header">
+                <span class="section-num">7</span>
+                <h2 class="section-title">Cookies & Tracking Technologies</h2>
+            </div>
+            <div class="section-body">
+                <p>The App may use cookies, SDKs, and similar technologies to enhance performance and understand usage patterns. These tools help us deliver a better, more tailored experience.</p>
+                <p>You can manage your tracking preferences through your device settings. Please note that disabling certain technologies may affect the App's functionality.</p>
+                <div class="highlight-box">
+                    <p><strong>Third-Party Services:</strong> We may use analytics providers (such as Google Analytics, Firebase) to collect anonymized usage data. These services operate under their own privacy policies. We encourage you to review them.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="section" id="s8">
+            <div class="section-header">
+                <span class="section-num">8</span>
+                <h2 class="section-title">Children's Privacy</h2>
+            </div>
+            <div class="section-body">
+                <p>Uoktansa is not directed to children under <strong>13 years of age</strong> (or 16 in certain jurisdictions). We do not knowingly collect personal information from children. If we discover that we have inadvertently collected such data, we will promptly delete it.</p>
+                <p>If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href="mailto:bakkabdo599@gmail.com">bakkabdo599@gmail.com</a>.</p>
+            </div>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="section" id="s9">
+            <div class="section-header">
+                <span class="section-num">9</span>
+                <h2 class="section-title">International Data Transfers</h2>
+            </div>
+            <div class="section-body">
+                <p>Your information may be transferred to and processed in countries other than your country of residence, including the United States. We ensure all such transfers comply with applicable data protection laws, using appropriate safeguards such as Standard Contractual Clauses where required.</p>
+                <p>By using the App, you consent to the processing and transfer of your information across borders in accordance with this policy.</p>
+            </div>
+        </section>
+
+        <!-- Section 10 -->
+        <section class="section" id="s10">
+            <div class="section-header">
+                <span class="section-num">10</span>
+                <h2 class="section-title">Changes to This Policy</h2>
+            </div>
+            <div class="section-body">
+                <p>We may revise this Privacy Policy periodically to reflect changes in our practices or legal requirements. We will notify you of material changes through:</p>
+                <ul class="custom-list">
+                    <li>In-app notifications or banners</li>
+                    <li>Email notifications to your registered address</li>
+                    <li>Updates posted on this page with a revised "Last Updated" date</li>
+                </ul>
+                <p>Your continued use of the App after changes are posted constitutes acceptance of the updated Privacy Policy.</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <div class="contact-section">
+            <div class="cs-icon">📬</div>
+            <h3>Questions? We're Here.</h3>
+            <p>Reach out anytime — we typically respond within 48 hours</p>
+            <a href="mailto:bakkabdo599@gmail.com" class="email-btn">
+                <svg viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 6L12 13L2 6"/>
+                </svg>
+                bakkabdo599@gmail.com
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="divider"></div>
+            <p><span class="app-name-footer">Uoktansa</span> &nbsp;·&nbsp; Privacy Policy</p>
+            <p>Effective Date: October 20, 2026</p>
+            <p class="disclaimer">This Privacy Policy is provided for informational purposes. For legal advice tailored to your specific circumstances, please consult a qualified attorney in your jurisdiction.</p>
+        </footer>
+
+    </div>
+</div>
+
+<!-- Floating Navigation Button -->
+<button class="nav-fab" id="navFab" aria-label="Open navigation">
+    <svg viewBox="0 0 24 24">
+        <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+</button>
+
+<!-- Navigation Panel -->
+<div class="nav-panel" id="navPanel">
+    <div class="nav-panel-title">Contents</div>
+    <a href="#s1"><span class="nav-num">1</span> Introduction</a>
+    <a href="#s2"><span class="nav-num">2</span> Information We Collect</a>
+    <a href="#s3"><span class="nav-num">3</span> How We Use Information</a>
+    <a href="#s4"><span class="nav-num">4</span> Sharing & Disclosure</a>
+    <a href="#s5"><span class="nav-num">5</span> Data Security</a>
+    <a href="#s6"><span class="nav-num">6</span> Your Rights & Choices</a>
+    <a href="#s7"><span class="nav-num">7</span> Cookies & Tracking</a>
+    <a href="#s8"><span class="nav-num">8</span> Children's Privacy</a>
+    <a href="#s9"><span class="nav-num">9</span> International Transfers</a>
+    <a href="#s10"><span class="nav-num">10</span> Changes to Policy</a>
+</div>
+
+<script>
+    // Navigation panel toggle
+    const navFab = document.getElementById('navFab');
+    const navPanel = document.getElementById('navPanel');
+
+    navFab.addEventListener('click', () => {
+        navPanel.classList.toggle('open');
+        // Rotate icon
+        const svg = navFab.querySelector('svg');
+        if (navPanel.classList.contains('open')) {
+            svg.innerHTML = '<path d="M6 6l12 12M18 6L6 18"/>';
+        } else {
+            svg.innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"/>';
+        }
+    });
+
+    // Close panel when clicking a link
+    navPanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navPanel.classList.remove('open');
+            navFab.querySelector('svg').innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"/>';
+        });
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navPanel.contains(e.target) && !navFab.contains(e.target)) {
+            navPanel.classList.remove('open');
+            navFab.querySelector('svg').innerHTML = '<path d="M3 12h18M3 6h18M3 18h18"/>';
+        }
+    });
+
+    // Intersection Observer for scroll animations
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(24px)';
+        section.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>
